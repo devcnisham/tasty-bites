@@ -69,6 +69,7 @@ export function Provider({ children }: { children: React.ReactNode }) {
     [consentOpen, setConsentOpen] = useState(false),
     [events, setEvents] = useState<string[]>([]);
   useEffect(() => {
+    window.dispatchEvent(new Event("tb:hydrated"));
     try {
       const raw = localStorage.getItem("tb_demo");
       const consentRaw = document.cookie

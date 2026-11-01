@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, DM_Sans } from "next/font/google";
+import Script from "next/script";
+import { extensionHydrationGuard } from "@/lib/extension-hydration-guard.mjs";
 import "./globals.css";
 const serif = Fraunces({
   subsets: ["latin"],
@@ -19,7 +21,14 @@ export const metadata: Metadata = {
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
-      <body className={`${serif.variable} ${sans.variable}`}>{children}</body>
+      <body className={`${serif.variable} ${sans.variable}`}>
+        <Script
+          id="form-extension-hydration-guard"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: extensionHydrationGuard }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

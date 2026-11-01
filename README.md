@@ -11,7 +11,9 @@ npm install
 npm run dev
 ```
 
-Visit http://localhost:3000. Validate with `npm run lint` and `npm run build`. Production: `npm run start` after building. No API keys or environment variables required.
+Visit http://localhost:3000. Validate with `npm run test`, `npm run lint` and `npm run build`. Production: `npm run start` after building. No API keys or environment variables required.
+
+The root layout runs a small pre-hydration guard for browser form-filler extensions that inject `fdprocessedid` into controls. It removes only that marker until the browser store mounts, then disconnects; it does not disable server rendering or suppress other hydration warnings. Regression tests cover streamed controls, cleanup, preservation of native values/listeners, and actual React hydration.
 
 ## Explore
 
