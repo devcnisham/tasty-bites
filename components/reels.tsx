@@ -22,13 +22,12 @@ function ReelCard({ reel, play }: { reel: Reel; play: () => void }) {
       <span className="reel-gradient" />
       <span className="reel-top">
         <Instagram size={17} />
-        <span>{reel.demo ? "DEMO REEL" : "INSTAGRAM REEL"}</span>
+        <span>STUDIO REEL</span>
       </span>
       <span className="reel-caption">
         <strong>{reel.title}</strong>
         <small>
-          {reel.demo ? "Open the reel" : "Watch on Instagram"}{" "}
-          <ArrowUpRight size={13} />
+          Watch reel <ArrowUpRight size={13} />
         </small>
       </span>
     </>

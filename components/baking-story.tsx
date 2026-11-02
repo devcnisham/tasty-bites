@@ -10,7 +10,7 @@ import {
   useTransform,
   useSpring,
 } from "framer-motion";
-import { ArrowDown, ArrowUpRight, Heart } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Bake } from "./ui";
 import BitingCookie from "./biting-cookie";
 
@@ -36,7 +36,6 @@ export default function BakingStory() {
   const rotate = useTransform(p, [0, 0.35, 0.68, 1], [-24, 16, -16, 4]);
   const rotateY = useTransform(p, [0, 0.35, 0.68, 1], [-10, 16, -12, 0]);
   const scale = useTransform(p, [0, 0.35, 0.68, 1], [0.78, 1.06, 0.94, 1]);
-  const wordX = useTransform(p, [0, 1], ["18%", "-20%"]);
   const one = useTransform(p, [0, 0.2, 0.32], [1, 1, 0]);
   const oneY = useTransform(p, [0, 0.2, 0.32], ["0%", "0%", "-20%"]);
   const two = useTransform(p, [0.2, 0.34, 0.52, 0.65], [0, 1, 1, 0]);
@@ -82,26 +81,13 @@ export default function BakingStory() {
       aria-label="From your first whisk to your next celebration"
     >
       <motion.div className="story-stage" style={{ background }}>
-        <div className="story-topline">
-          <span>TASTY BITE · A LITTLE KITCHEN MAGIC</span>
-          <span className="row">
-            <Heart size={13} /> MADE BY YOU
-          </span>
-        </div>
-        <motion.div
-          className="story-big-word"
-          style={{ x: wordX }}
-          aria-hidden="true"
-        >
-          mix. make. magic.
-        </motion.div>
         <div className="story-copy-stack">
           <motion.div className="story-copy" style={{ opacity: one, y: oneY }}>
             <span className="eyebrow">01 / A LITTLE CURIOSITY</span>
             <h2>
               It starts
               <br />
-              with a <em>whisk.</em>
+              with a whisk.
             </h2>
             <p>
               A bowl, a few ingredients, and that lovely feeling of trying
@@ -109,11 +95,11 @@ export default function BakingStory() {
             </p>
           </motion.div>
           <motion.div className="story-copy" style={{ opacity: two, y: twoY }}>
-            <span className="eyebrow">02 / A LITTLE EVERYDAY MAGIC</span>
+            <span className="eyebrow">02 / EVERYDAY MAGIC</span>
             <h2>
               Then comes
               <br />
-              the <em>“I made that.”</em>
+              the “I made that.”
             </h2>
             <p>
               The first perfect rise. The swirl of frosting. A little
@@ -124,11 +110,11 @@ export default function BakingStory() {
             className="story-copy"
             style={{ opacity: three, y: threeY }}
           >
-            <span className="eyebrow">03 / A LITTLE SOMETHING TO SHARE</span>
+            <span className="eyebrow">03 / SOMETHING TO SHARE</span>
             <h2>
               And suddenly,
               <br />
-              it’s a <em>celebration.</em>
+              it’s a celebration.
             </h2>
             <p>
               Make the birthday cake. Bring the cookies. Turn an ordinary day
@@ -162,11 +148,8 @@ export default function BakingStory() {
           <Bake kind="macaron" />
         </motion.div>
         <div className="story-bottomline">
-          <span className="story-scroll-hint">
-            <ArrowDown size={15} /> A little scroll. A little magic.
-          </span>
           <Link href="/courses" className="story-course-link">
-            Make something lovely <ArrowUpRight size={17} />
+            Explore our courses <ArrowUpRight size={17} />
           </Link>
         </div>
         <motion.div
