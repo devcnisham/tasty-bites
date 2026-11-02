@@ -10,7 +10,7 @@ import {
   useTransform,
   useMotionTemplate,
 } from "framer-motion";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { ArrowUpRight, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { portfolio, coursePhotos, type StudioPhoto } from "@/data/portfolio";
 import type { Course } from "@/data/courses";
 import { Bake, Modal, Reveal } from "./ui";
@@ -34,9 +34,11 @@ export function CourseVisual({ c }: { c: Course }) {
 
 function InteractivePhoto({
   photo,
+  index,
   open,
 }: {
   photo: StudioPhoto;
+  index: number;
   open: () => void;
 }) {
   const reduce = useReducedMotion();
@@ -79,6 +81,10 @@ function InteractivePhoto({
         style={{ background: shine }}
         aria-hidden="true"
       />
+      <span className="portfolio-index">0{index + 1} / THE SWEET EDIT</span>
+      <span className="portfolio-view">
+        Take a closer look <ArrowUpRight size={17} />
+      </span>
     </motion.button>
   );
 }
@@ -110,10 +116,10 @@ export function PhotoGallery({
       {showHeading && (
         <Reveal className="section-title portfolio-heading">
           <div>
-            <span className="eyebrow">STUDIO INSPIRATION</span>
+            <span className="eyebrow">THE SWEETEST LITTLE INSPIRATIONS</span>
             <h2>
               A little glimpse.
-              <br />A lot of possibility.
+              <br />A lot of <em>possibility.</em>
             </h2>
           </div>
           <p>
@@ -132,6 +138,7 @@ export function PhotoGallery({
           >
             <InteractivePhoto
               photo={photo}
+              index={i}
               open={() => setActive(i)}
             />
             <div className="portfolio-caption">

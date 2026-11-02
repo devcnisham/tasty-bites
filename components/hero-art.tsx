@@ -10,6 +10,7 @@ import {
   useTransform,
   useReducedMotion,
 } from "framer-motion";
+import { ArrowDown, ArrowUpRight, Heart } from "lucide-react";
 import { portfolio } from "@/data/portfolio";
 
 export function HeroTitle() {
@@ -19,15 +20,17 @@ export function HeroTitle() {
       {[
         <>Good things</>,
         <>come to those</>,
-        <>who bake.</>,
+        <>
+          who <em>bake.</em>
+        </>,
       ].map((line, i) => (
         <span className="title-mask" key={i}>
           <motion.span
-            initial={reduce ? false : { y: "110%" }}
-            animate={{ y: "0%" }}
+            initial={reduce ? false : { y: "110%", rotate: 2 }}
+            animate={{ y: "0%", rotate: 0 }}
             transition={{
-              duration: 0.8,
-              delay: 0.1 + i * 0.1,
+              duration: 0.95,
+              delay: 0.1 + i * 0.12,
               ease: [0.22, 1, 0.36, 1],
             }}
           >
@@ -35,6 +38,17 @@ export function HeroTitle() {
           </motion.span>
         </span>
       ))}
+      <svg viewBox="0 0 240 20" aria-hidden="true">
+        <motion.path
+          d="M4 12Q110-6 235 10M28 18Q125 4 213 17"
+          stroke="currentColor"
+          fill="none"
+          strokeWidth="3"
+          initial={reduce ? false : { pathLength: 0 }}
+          animate={{ pathLength: 1 }}
+          transition={{ delay: 0.9, duration: 0.7 }}
+        />
+      </svg>
     </h1>
   );
 }
@@ -86,6 +100,10 @@ export default function HeroArtwork() {
             style={{ objectPosition: portfolio[0].position }}
             onLoad={() => setLoaded(true)}
           />
+          <span className="hero-photo-caption">
+            A little romance. A little frosting.
+            <ArrowUpRight size={17} />
+          </span>
         </Link>
         <span className="photo-tape" aria-hidden="true" />
       </motion.div>
@@ -107,6 +125,7 @@ export default function HeroArtwork() {
             sizes="(max-width:560px) 110px, 140px"
             style={{ objectPosition: "50% 40%" }}
           />
+          <span>the little details ♡</span>
         </Link>
       </motion.div>
       <motion.div
@@ -126,8 +145,28 @@ export default function HeroArtwork() {
             fill
             sizes="(max-width:560px) 100px, 130px"
           />
+          <span>small bakes. big love.</span>
         </Link>
       </motion.div>
+      <div className="editorial-note">
+        a little flour.
+        <br />a little magic.<span>↘</span>
+      </div>
+      <span className="editorial-heart" aria-hidden="true">
+        ♡
+      </span>
+      <div className="editorial-seal">
+        <Heart size={19} />
+        <span>
+          MADE WITH LOVE
+          <br />
+          <strong>with a little love</strong>
+        </span>
+      </div>
+      <Link href="#baking-story" className="hero-scroll-link">
+        <ArrowDown size={14} />
+        Scroll for the sweet part
+      </Link>
     </div>
   );
 }

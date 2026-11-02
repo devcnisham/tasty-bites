@@ -33,7 +33,7 @@ const offers = [
     label: "A LITTLE WELCOME TREAT",
     title: "Your first bake, a little sweeter.",
     description:
-      "Find a course you love and take 10% off your first order. A little encouragement to start something lovely.",
+      "Find a course you love and take 10% off your demo order. A little encouragement to start something lovely.",
     image: "/images/stock/pink-cake.jpg",
     alt: "A pale pink cake with delicate piped frosting",
     poster: false,
@@ -153,7 +153,7 @@ export default function Offers() {
                   Find your first bake <ArrowUpRight size={18} />
                 </Link>
                 <small className="offer-contact">
-                  Special offer · One code per order
+                  Demo offer · One code per order
                 </small>
               </>
             )}

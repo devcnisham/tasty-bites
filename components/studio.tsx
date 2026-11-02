@@ -304,6 +304,7 @@ function App() {
         </div>
         <div className="footer-bottom">
           <span>© {new Date().getFullYear()} Tasty Bite Baking Studio</span>
+          <span>Interactive demo · No real payments or accounts</span>
           <Link href="/admin">Studio admin ↗</Link>
         </div>
       </footer>
@@ -426,6 +427,10 @@ function Home({
       <section className="hero">
         <div className="hero-copy">
           <Reveal>
+            <span className="eyebrow">
+              <span className="tiny-line" />
+              YOUR SWEETEST LITTLE HAPPY PLACE
+            </span>
             <HeroTitle />
             <p>
               From your first fluffy sponge to your signature bake.
@@ -1740,6 +1745,10 @@ function About() {
             We’re bringing the spirit of Tasty Bite Baking Studio online:
             patient guidance, thoughtful recipes, and the small details that
             turn uncertainty into confidence.
+          </p>
+          <p className="muted">
+            This is a provisional studio story. The studio’s final story, team
+            and milestones will replace this copy.
           </p>
         </div>
       </div>
